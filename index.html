@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #d8adad;
+            border-radius: 4px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 4px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 12px 16px;
+            background-color: #690e3e;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 10px;
+        }
+		/* Apply some basic styling to the entire table */
+		table {
+		width: 100%;
+
+		}
+
+		/* Style for table header cells */
+		th {   
+			padding: 9px;
+			text-align: center;
+			}
+
+			/* Style for table data cells */
+		td {
+        padding: 9px;
+		}
+
+    </style>
+    <script src="index.js">
+        
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2><center>Registration Form</h2></center>
+		<table>
+        <form onsubmit="return formValidation()">
+            <tr><td><label for="name">Name<font color=red>*</font></label></td>
+            <td><input type="text" id="name" name="name" required></td></tr>
+
+           <tr><td> <label for="email">Email<font color=red>*</font></label></td>
+           <td> <input type="email" id="email" name="email" required></td></tr>
+
+            <tr><td><label for="password">Password<font color=red>*</font></label></td>
+            <td><input type="password" id="pwd" name="password" required></td></tr>
+
+            <tr><td><label for="dob">Date of Birth<font color=red>*</font></label></td>
+            <td><input type="date" id="dob" name="dob" required></td></tr>
+
+            <tr><td>
+                <input type="checkbox" id="terms" name="terms" required></td>
+                <td><label>I accept the terms and conditions.
+            </label></td></tr>
+<tr><td colspan="2">
+            <button type="submit">Submit</button></td></tr></table>
+        </form>
+    </div>
+
+    <div class="container" id="output">
+	
+        
+		<h2><center>Entries</center></h2><table><tr><th>Name</th><th>Email</th><th>Password</th><th>Date of Birth </th><th>Accepted Terms?</th></tr></table>
+		
+    </div>
+
+    <script>
+        // This part of the script is placed at the bottom to ensure the DOM is loaded before attaching event listeners.
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior.
+            if (formValidation()) {
+                formDataDisplay();
+            }
+        });
+    </script>
+</body>
+</html>
